@@ -1,0 +1,46 @@
+.generated-password {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 540px;
+  height: 80px;
+  background: #24232c;
+  padding: 19px 28px 19px 32px;
+}
+.generated-password p {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: 0px;
+  color: rgba(230, 229, 234, 0.25);
+}
+.generated-password img {
+  width: 21px;
+  height: 24px;
+  color: #a4ffaf;
+}
+.password-generator {
+  margin: 24px 32px 32px 32px;
+}
+.character-length {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: JetBrains Mono;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0px;
+  gap: 283px;
+}
+.character-length div {
+  color: #a4ffaf;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 42px;
+}
+.input-range {
+  width: 476px;
+  height: 28px;
+  background: #18171f;
+}
