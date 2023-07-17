@@ -3,26 +3,48 @@ import classes from "./MainContainer.module.css";
 import copyIcon from "../assets/images/Shape.svg";
 
 function MainCotainer() {
-  const [value, setValue] = useState(0);
+  const [charLength, setCharLength] = useState(0);
+  const [randomChar, setRandomChar] = useState("");
 
+  console.log(charLength);
   const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
   const numbers = "0123456789";
   const symbols = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
 
+  const AddUppercaseLetters = () => {
+    setRandomChar((prevState) => {
+      return prevState ? prevState + uppercaseChars : uppercaseChars;
+    });
+  };
+  const AddLowercaseLetters = () => {
+    setRandomChar((prevState) => {
+      return prevState ? prevState + lowercaseChars : lowercaseChars;
+    });
+  };
+  const AddNumbers = () => {
+    setRandomChar((prevState) => {
+      return prevState ? prevState + numbers : numbers;
+    });
+  };
+
+  const AddSymbols = () => {
+    setRandomChar((prevState) => {
+      return prevState ? prevState + symbols : symbols;
+    });
+  };
+  console.log(randomChar);
   let password = "";
-  for (let i = 0; i <= value; i++) {
-    const randomChar = uppercaseChars + lowercaseChars + numbers + symbols;
-    const randompass = randomChar.charAt(
-      Math.floor(Math.random() * randomChar.length)
-    );
+  for (let i = 1; i <= charLength; i++) {
+    const randompass =
+      randomChar[Math.floor(Math.random() * randomChar.length)];
     password += randompass;
   }
   console.log(password);
 
   const handleChange = (event) => {
     if (event.target.value <= 20) {
-      setValue(event.target.value);
+      setCharLength(event.target.value);
     }
   };
   return (
@@ -35,32 +57,32 @@ function MainCotainer() {
       <div className={classes["password-generator"]}>
         <div className={classes["character-length"]}>
           <span>Character Length</span>
-          <div>{value}</div>
+          <div>{charLength}</div>
         </div>
         <input
           className={classes["input-range"]}
           type="range"
           min="0"
           max="20"
-          value={value}
+          value={charLength}
           onChange={handleChange}
         ></input>
 
         <div>
           <div>
-            <input type="checkbox"></input>
-            <span>Include Uppercase Letters</span>
+            <input type="checkbox" onClick={AddUppercaseLetters}></input>
+            <span>Include Uppercase Letters </span>
           </div>
           <div>
-            <input type="checkbox"></input>
+            <input type="checkbox" onClick={AddLowercaseLetters}></input>
             <span>Include Lowercase Letters</span>
           </div>
           <div>
-            <input type="checkbox"></input>
+            <input type="checkbox" onClick={AddNumbers}></input>
             <span>Include Numbers</span>
           </div>
           <div>
-            <input type="checkbox"></input>
+            <input type="checkbox" onClick={AddSymbols}></input>
             <span>Include Symbols</span>
           </div>
         </div>
