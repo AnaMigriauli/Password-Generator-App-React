@@ -20,7 +20,11 @@
   color: #a4ffaf;
 }
 .password-generator {
-  margin: 24px 32px 32px 32px;
+  padding: 24px 32px 32px 32px;
+  margin-top: 24px;
+  background: #24232c;
+  width: 540px;
+  height: 528px;
 }
 .character-length {
   display: flex;
@@ -32,6 +36,7 @@
   line-height: 24px;
   letter-spacing: 0px;
   gap: 283px;
+  color: #e6e5ea;
 }
 .character-length div {
   color: #a4ffaf;
@@ -43,4 +48,74 @@
   width: 476px;
   height: 28px;
   background: #18171f;
+}
+.password-strength {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 23px 31.5px 21px 32px;
+  margin-top: 32px;
+  width: 476px;
+  height: 72px;
+  background: #18171f;
+}
+.password-strength span {
+  color: #817d92;
+  font-family: JetBrains Mono;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+}
+.password-strength-rate {
+  display: flex;
+  justify-content: space-between;
+  width: 63.5px;
+  height: 28px;
+}
+
+.password-strength-rate div {
+  width: 10px;
+  height: 28px;
+  border: 2px solid #e6e5ea;
+}
+.check-box {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e6e5ea;
+  cursor: pointer;
+}
+.checkbox-container {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: #e6e5ea;
+}
+.checkbox-container div {
+  display: flex;
+  gap: 24px;
+}
+.weak-password {
+  background: #f64a4a;
+}
+.check-img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.btn {
+  font-family: JetBrains Mono;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  margin-top: 32px;
+  width: 476px;
+  height: 65px;
+  background: #a4ffaf;
+  color: #24232c;
+  border: none;
+  cursor: pointer;
 }
