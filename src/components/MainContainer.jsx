@@ -2,34 +2,69 @@ import { useState } from "react";
 import classes from "./MainContainer.module.css";
 import copyIcon from "../assets/images/Shape.svg";
 import checkBox from "../assets/images/Group 10.svg";
+import copy from "copy-to-clipboard";
 
 function MainCotainer() {
   const [charLength, setCharLength] = useState(0);
-  // const [includeUppercase, setIncludeUppercase] = useState(false);
-  // const [includeLowercase, setIncludeLowercase] = useState(false);
-  // const [includeNumbers, setIncludeNumbers] = useState(false);
-  // const [includeSymbols, setIncludeSymbols] = useState(false);
-
+  const [randomPassword, setRandomPassword] = useState("");
   const [isChaked, setIsChacked] = useState({
     uppercaseLetters: false,
     lowercaseLetters: false,
     number: false,
     symbol: false,
   });
+  const [copyPassword, setCopyPassword] = useState(false);
+
+  const copyToClipboard = () => {
+    copy(randomPassword);
+
+    setCopyPassword(true);
+    setTimeout(() => {
+      setCopyPassword(false);
+    }, 5000);
+  };
 
   const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
   const numbers = "0123456789";
   const symbols = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
 
-  let randomPassword = "";
+  const hasCharactersType = [
+    /[A-Z]/,
+    /[a-z]/,
+    /\d/,
+    /[!@#$%^&*()_+~`|}{[\]:;?><,./-=]/,
+  ];
+  let strength = 0;
+  hasCharactersType.forEach((regex) => {
+    if (regex.test(randomPassword)) {
+      strength++;
+    }
+  });
+  // console.log(randomPassword);
+  console.log(strength);
+
+  let includeUppercase = false;
+  let includeLowercase = false;
+  let includeNumbers = false;
+  let includeSymbols = false;
+
+  if (strength === 1) {
+    includeUppercase = true;
+  } else if (strength === 2) {
+    includeLowercase = true;
+  } else if (strength === 3) {
+    includeNumbers = true;
+  } else if (strength === 4) {
+    includeSymbols = true;
+  }
+
   const GeneratePassword = () => {
     let charSet = "";
     for (let i = 1; i <= charLength; i++) {
       if (isChaked.uppercaseLetters) {
         charSet += GetRendomChart(uppercaseChars);
       }
-
       if (isChaked.lowercaseLetters) {
         charSet += GetRendomChart(lowercaseChars);
       }
@@ -40,27 +75,16 @@ function MainCotainer() {
         charSet += GetRendomChart(symbols);
       }
     }
+    let randomPass = charSet.slice(0, charLength);
 
-    randomPassword += charSet;
+    setRandomPassword(randomPass);
   };
-  GeneratePassword();
   function GetRendomChart(charSet) {
     return charSet[Math.floor(Math.random() * charSet.length)];
   }
 
-  randomPassword = randomPassword.slice(0, charLength);
   console.log(randomPassword);
 
-  // console.log(isChaked.uppercaseLetters);
-
-  // if (
-  //   isChaked.uppercaseLetters ||
-  //   isChaked.lowercaseLetters ||
-  //   isChaked.number ||
-  //   isChaked.symbol
-  // ) {
-  //   setIncludeLowercase(true);
-  // }
   const handleChange = (event) => {
     if (event.target.value <= 20) {
       setCharLength(event.target.value);
@@ -70,8 +94,11 @@ function MainCotainer() {
     <div>
       <h2>Password Generator</h2>
       <div className={classes["generated-password"]}>
-        <p>P4$5W0rD!</p>
-        <img src={copyIcon} alt="copy icon" />
+        <p>{randomPassword ? randomPassword : "P4$5W0rD!"}</p>
+        <button onClick={copyToClipboard}>
+          {copyPassword ? <span>COPIED</span> : ""}
+          <img src={copyIcon} alt="copy icon" />
+        </button>
       </div>
       <div className={classes["password-generator"]}>
         <div className={classes["character-length"]}>
@@ -209,14 +236,46 @@ function MainCotainer() {
         <div className={classes["password-strength"]}>
           <span>STRENGTH</span>
           <div className={classes["password-strength-rate"]}>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div
+              className={
+                includeUppercase
+                  ? classes["too-weak-password"]
+                  : includeLowercase
+                  ? classes["weak-password"]
+                  : includeNumbers
+                  ? classes.medium
+                  : includeSymbols
+                  ? classes.strong
+                  : ""
+              }
+            ></div>
+            <div
+              className={
+                includeLowercase
+                  ? classes["weak-password"]
+                  : includeNumbers
+                  ? classes.medium
+                  : includeSymbols
+                  ? classes.strong
+                  : ""
+              }
+            ></div>
+            <div
+              className={
+                includeNumbers
+                  ? classes.medium
+                  : includeSymbols
+                  ? classes.strong
+                  : ""
+              }
+            ></div>
+            <div className={includeSymbols ? classes.strong : ""}></div>
           </div>
         </div>
 
-        <button className={classes.btn}>GENERATE</button>
+        <button className={classes.btn} onClick={GeneratePassword}>
+          GENERATE
+        </button>
       </div>
     </div>
   );

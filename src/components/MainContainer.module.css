@@ -14,9 +14,20 @@
   letter-spacing: 0px;
   color: rgba(230, 229, 234, 0.25);
 }
-.generated-password img {
-  width: 21px;
-  height: 24px;
+.generated-password button {
+  display: flex;
+  gap: 16px;
+  color: #a4ffaf;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.generated-password span {
+  font-family: JetBrains Mono;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+
   color: #a4ffaf;
 }
 .password-generator {
@@ -96,8 +107,17 @@
   display: flex;
   gap: 24px;
 }
-.weak-password {
+.too-weak-password {
   background: #f64a4a;
+}
+.weak-password {
+  background: #fb7c58;
+}
+.medium {
+  background: #f8cd65;
+}
+.strong {
+  background: #a4ffaf;
 }
 .check-img {
   width: 20px;
