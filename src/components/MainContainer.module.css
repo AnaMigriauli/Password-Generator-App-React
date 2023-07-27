@@ -1,16 +1,26 @@
+.header {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21px;
+  color: #817d92;
+  text-align: center;
+  margin-bottom: 31px;
+}
 .generated-password {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 540px;
-  height: 80px;
+  /* width: 540px; */
+  width: 343px;
+  height: 64px;
   background: #24232c;
-  padding: 19px 28px 19px 32px;
+  padding: 17px 15.5px 15px 16px;
 }
 .generated-password p {
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
-  line-height: 42px;
+  line-height: 31.68px;
   letter-spacing: 0px;
   color: rgba(230, 229, 234, 0.25);
 }
@@ -22,8 +32,10 @@
   border: none;
   cursor: pointer;
 }
+.generated-password button:hover svg path {
+  fill: #ffffff;
+}
 .generated-password span {
-  font-family: JetBrains Mono;
   font-size: 18px;
   font-weight: 700;
   line-height: 24px;
@@ -31,52 +43,72 @@
   color: #a4ffaf;
 }
 .password-generator {
-  padding: 24px 32px 32px 32px;
-  margin-top: 24px;
+  padding: 16px;
+  margin-top: 16px;
   background: #24232c;
-  width: 540px;
-  height: 528px;
+  /* width: 540px;
+  height: 528px; */
+  width: 343px;
+  height: 423px;
+}
+.password {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #e6e5ea !important;
 }
 .character-length {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: JetBrains Mono;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 24px;
-  letter-spacing: 0px;
-  gap: 283px;
+
   color: #e6e5ea;
 }
 .character-length div {
   color: #a4ffaf;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 42px;
 }
-.input-range {
-  width: 476px;
-  height: 28px;
-  background: #18171f;
+input[type="range"] {
+  /* width: 476px; */
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  accent-color: #a4ffaf;
 }
+
 .password-strength {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 23px 31.5px 21px 32px;
+  padding: 17px 16px 18px 16px;
   margin-top: 32px;
-  width: 476px;
-  height: 72px;
+  /* width: 476px; */
+  width: 100%;
+  height: 56px;
   background: #18171f;
 }
 .password-strength span {
   color: #817d92;
-  font-family: JetBrains Mono;
   font-size: 18px;
   font-weight: 700;
   line-height: 24px;
   text-align: center;
+}
+
+.password-strength div {
+  display: flex;
+  /* margin-left: 16px; */
+  align-items: center;
+}
+.strength-text {
+  color: #e6e5ea !important;
 }
 .password-strength-rate {
   display: flex;
@@ -102,6 +134,7 @@
   flex-direction: column;
   gap: 20px;
   color: #e6e5ea;
+  font-size: 16px;
 }
 .checkbox-container div {
   display: flex;
@@ -125,17 +158,31 @@
   cursor: pointer;
 }
 .btn {
-  font-family: JetBrains Mono;
-  font-size: 18px;
+  width: 100%;
+  height: 56px;
+  font-size: 16px;
   font-weight: 700;
-  line-height: 24px;
+  line-height: 21px;
   letter-spacing: 0px;
   text-align: center;
-  margin-top: 32px;
-  width: 476px;
-  height: 65px;
+  margin-top: 16px;
+  /* margin-top: 32px; */
+  /* width: 476px;
+  height: 65px; */
   background: #a4ffaf;
   color: #24232c;
   border: none;
   cursor: pointer;
+}
+.btn:hover {
+  color: #a4ffaf;
+  background: #24232c;
+  border: 2px solid #a4ffaf;
+}
+
+.btn svg {
+  margin-left: 16px;
+}
+.btn:hover svg path {
+  fill: #a4ffaf;
 }

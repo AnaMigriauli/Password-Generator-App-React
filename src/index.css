@@ -10,4 +10,11 @@
   align-items: center;
   height: 100vh;
   width: 100%;
+  background: #18171f;
+  font-family: "JetBrains Mono", monospace;
+}
+
+@font-face {
+  font-family: "JetBrainsMono-Bold";
+  src: url("./assets/fonts/JetBrainsMono-Bold.ttf");
 }
