@@ -39,15 +39,12 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 24px;
-
   color: #a4ffaf;
 }
 .password-generator {
   padding: 16px;
   margin-top: 16px;
   background: #24232c;
-  /* width: 540px;
-  height: 528px; */
   width: 343px;
   height: 423px;
 }
@@ -66,7 +63,6 @@
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
-
   color: #e6e5ea;
 }
 .character-length div {
@@ -76,7 +72,6 @@
   line-height: 42px;
 }
 input[type="range"] {
-  /* width: 476px; */
   width: 100%;
   height: 8px;
   cursor: pointer;
@@ -166,9 +161,6 @@ input[type="range"] {
   letter-spacing: 0px;
   text-align: center;
   margin-top: 16px;
-  /* margin-top: 32px; */
-  /* width: 476px;
-  height: 65px; */
   background: #a4ffaf;
   color: #24232c;
   border: none;
@@ -185,4 +177,55 @@ input[type="range"] {
 }
 .btn:hover svg path {
   fill: #a4ffaf;
+}
+
+@media (min-width: 768px) {
+  .header {
+    font-size: 24px;
+  }
+
+  .generated-password {
+    width: 540px;
+    height: 80px;
+    padding: 19px 32px;
+  }
+  .generated-password p {
+    font-size: 32px;
+  }
+  .generated-password button svg {
+    width: 21px;
+    height: 24px;
+  }
+  .password-generator {
+    padding: 24px 32px;
+    margin-top: 24px;
+    width: 540px;
+    height: 528px;
+  }
+  .character-length {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+  .character-length div {
+    font-size: 32px;
+  }
+  input[type="range"] {
+    height: 28px;
+  }
+  .checkbox-container {
+    font-size: 18px;
+    gap: 24px;
+  }
+  .password-strength {
+    height: 72px;
+    padding: 25px 31.5px 23px 32px;
+  }
+  .password-strength div {
+    font-size: 24px;
+  }
+  .btn {
+    font-size: 18px;
+    height: 65px;
+    margin-top: 32px;
+  }
 }

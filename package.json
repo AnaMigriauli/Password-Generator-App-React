@@ -1,7 +1,7 @@
 {
   "name": "password-generator-app",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "homepage": "https://AnaMigriauli.github.io/Password-Generator-App-React",
   "type": "module",
   "scripts": {
